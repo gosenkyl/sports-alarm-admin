@@ -7,6 +7,8 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
+  this.route('teams', {path: 'teams/:leagueId'});
+  this.route('schedule', {path: 'schedule/:team_id'});
 });
 
 export default Router;

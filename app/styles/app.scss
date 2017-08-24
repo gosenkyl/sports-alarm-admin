@@ -1,0 +1,148 @@
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+html, body {
+  height: 100%;
+}
+
+body > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.select-message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  flex-grow: 2;
+}
+
+.landing-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+  min-height: 75px;
+  position: fixed;
+
+  background-color: white;
+  border-bottom: solid darkgray 4px;
+
+  width: 100%;
+  z-index: 999;
+
+  .league {
+    font-size: 24px;
+    font-weight: bolder;
+
+    a {
+      text-decoration:  none;
+      color: cadetblue;
+    }
+
+    a:hover {
+      color: darkcyan;
+    }
+  }
+}
+
+.content {
+  padding-top: 100px;
+}
+
+.team-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+
+  .loading {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.team-card {
+
+  width: 200px;
+  height: 300px;
+
+  margin: 20px;
+  padding: 10px;
+
+  box-shadow: 0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+
+  .team-name, .original-team-name {
+    height: 40px;
+  }
+
+  .team-name {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    .team-name-edit {
+      display: flex;
+      flex-direction: column;
+
+      height: 80px;
+
+      max-width: 75%;
+    }
+
+    .edit-buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .origin-team-name {
+    background-color: darkgray;
+  }
+
+  .image-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+    img {
+      width: 150px;
+      height: 150px;
+
+      max-width: 150px;
+      max-height: 150px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+.loader {
+  border: 5px solid #f3f3f3; /* Light grey */
+  border-top: 5px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

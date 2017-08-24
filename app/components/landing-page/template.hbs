@@ -1,0 +1,5 @@
+{{#each sortedLeagues as |league|}}
+  <div class="league">
+    {{#link-to "teams" league.id}}{{league.id}}{{/link-to}}
+  </div>
+{{/each}}

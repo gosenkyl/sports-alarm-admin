@@ -1,0 +1,23 @@
+{
+  "name": "sports-alarm-admin",
+  "description": "Small description for sports-alarm-admin goes here",
+  "main": "",
+  "authors": [
+    "Kyle Gosen <gosenkyl@msu.edu>"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  },
+  "devDependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}
