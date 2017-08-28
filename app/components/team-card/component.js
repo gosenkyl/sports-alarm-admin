@@ -9,12 +9,19 @@ let {
 
 export default Component.extend({
   classNames: ["team-card"],
+  classNameBindings: ["isCollapsedVersion:team-card-collapsed:team-card-standard"],
+
+  isCollapsedVersion: false,
 
   router: inject.service("router"),
 
   team: null,
 
+  canEdit: false,
   isEditMode: false,
+
+  showOrigin: true,
+  teamNameStack: false,
 
   actions: {
     edit(){
@@ -31,7 +38,7 @@ export default Component.extend({
 
     onClick(){
       let team = get(this, "team");
-      get(this, "router").transitionTo(`/schedule/${get(team, "id")}`);
+      get(this, "router").transitionTo(`/leagues/${get(team, "league.id")}/teams/${get(team, "id")}`);
     }
   }
 

@@ -1,5 +1,5 @@
 {{#if isEditMode}}
-  <div class="">
+  <div>
       <div class="team-name-edit">
         {{input type="text" value=team.city}}
         {{input type="text" value=team.mascot}}
@@ -12,17 +12,26 @@
 {{else}}
     <div class="team-name">
         <div class="team-name-display">
-          <div>{{team.teamName}}</div>
+            {{#if teamNameStack}}
+                <div>{{team.city}}</div>
+                <div>{{team.mascot}}</div>
+            {{else}}
+                <div>{{team.teamName}}</div>
+            {{/if}}
         </div>
-        <div class="edit-buttons">
-          <div {{action "edit"}}>edit</div>
-        </div>
+        {{#if canEdit}}
+          <div class="edit-buttons">
+            <div {{action "edit"}}>edit</div>
+          </div>
+        {{/if}}
     </div>
 {{/if}}
 
-<div class="origin-team-name">
- {{team.originTeamName}}
-</div>
+{{#if showOrigin}}
+  <div class="origin-team-name">
+   {{team.originTeamName}}
+  </div>
+{{/if}}
 
 <div class="image-container" {{action "onClick"}}>
     <img src="{{team.imageURL}}" />

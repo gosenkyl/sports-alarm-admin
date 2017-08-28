@@ -1,5 +1,5 @@
 <div class="teams team-grid">
-  {{#if findTeams.isRunning}}
+  {{#if teams.isLoading}}
     <div class="loading">
       <div class="loader"></div>
       <div>LOADING</div>
@@ -7,7 +7,7 @@
   {{else}}
 
     {{#each sortedTeams as |team|}}
-      {{team-card team=team}}
+      {{team-card team=team canEdit=true}}
     {{else}}
         <div>No teams loaded! :(</div>
     {{/each}}

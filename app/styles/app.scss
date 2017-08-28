@@ -69,8 +69,12 @@ body > div {
   }
 }
 
+
 .team-card {
 
+}
+
+.team-card-standard {
   width: 200px;
   height: 300px;
 
@@ -124,7 +128,70 @@ body > div {
   }
 }
 
+.team-card-collapsed {
+  width: 100px;
+  height: 150px;
 
+  .team-name, .original-team-name {
+    height: 40px;
+  }
+
+  .team-name {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-between;
+
+    .team-name-edit {
+      display: flex;
+      flex-direction: column;
+
+      height: 80px;
+
+      max-width: 75%;
+    }
+
+    .edit-buttons {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .image-container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+
+    img {
+      width: 50px;
+      height: 50px;
+
+      max-width: 50px;
+      max-height: 50px;
+    }
+  }
+}
+
+.game-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .game {
+    width: 100%;
+
+    .game-date {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .opponent-container {
+    justify-content: space-around;
+  }
+
+}
 
 
 

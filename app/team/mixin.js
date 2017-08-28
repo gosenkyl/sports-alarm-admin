@@ -9,6 +9,9 @@ let {
 
 export default Mixin.create({
 
+  gamesSort: ["dateTime:asc"],
+  gamesSorted: computed.sort("games", "gamesSort"),
+
   isLocalImages: false,
 
   teamName: computed("city", "mascot", function(){

@@ -1,0 +1,9 @@
+{{#each games as |game|}}
+    <div class="game">
+      <div class="game-date">{{game.gameTimeFormatted}}</div>
+      <div class="flex-row opponent-container">
+        <div>{{team-card team=game.homeTeam isCollapsedVersion=true showOrigin=false teamNameStack=true}}</div>
+        <div>{{team-card team=game.awayTeam isCollapsedVersion=true showOrigin=false teamNameStack=true}}</div>
+      </div>
+    </div>
+{{/each}}

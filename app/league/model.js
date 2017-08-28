@@ -4,6 +4,8 @@ export default DS.Model.extend({
 
   parseFromDate: DS.attr(),
   parseToDate: DS.attr(),
-  sequence: DS.attr()
+  sequence: DS.attr(),
+
+  teams: DS.hasMany("team", { async: true })
 
 });
