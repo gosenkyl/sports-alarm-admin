@@ -1,9 +1,27 @@
-{{#each games as |game|}}
-    <div class="game">
-      <div class="game-date">{{game.gameTimeFormatted}}</div>
-      <div class="flex-row opponent-container">
-        <div>{{team-card team=game.homeTeam isCollapsedVersion=true showOrigin=false teamNameStack=true}}</div>
-        <div>{{team-card team=game.awayTeam isCollapsedVersion=true showOrigin=false teamNameStack=true}}</div>
+<div class="team-header">
+  {{team-card team=team isCollapsedVersion=true showOrigin=false isColumn=false}}
+</div>
+
+<div class="container">
+  {{#each games as |game index|}}
+      <div class="flex-row game {{if (date-compare compare="GREATER" date1=now date2=game.dateTimeMoment) "old"}}">
+        {{#if (eq game.id nextGame.id)}}
+            <div class="next-game">NEXT GAME</div>
+        {{/if}}
+        <div class="game-date">{{game.gameDateTimeFormatted}}</div>
+        <div class="flex-column opponent-container">
+          {{#if (eq index 0)}}
+              <div class="flex-row home-away">
+                  <div>HOME</div>
+                  <div>AWAY</div>
+              </div>
+          {{/if}}
+
+          <div class="flex-row">
+            {{team-card team=game.homeTeam isCollapsedVersion=true showOrigin=false teamNameStack=true isHighlighted=(eq game.homeTeam.id team.id)}}
+            {{team-card team=game.awayTeam isCollapsedVersion=true showOrigin=false teamNameStack=true isHighlighted=(eq game.awayTeam.id team.id)}}
+          </div>
+        </div>
       </div>
-    </div>
-{{/each}}
+  {{/each}}
+</div>

@@ -9,8 +9,22 @@ let {
 
 export default Mixin.create({
 
+  dateTimeMoment: computed({
+    get(){
+      return moment(get(this, "dateTime"));
+    }
+  }),
+
+  gameDateTimeFormatted: computed("gameDateFormatted", "gameTimeFormatted", function(){
+    return `${get(this, "gameDateFormatted")}, ${get(this, "gameTimeFormatted")}`;
+  }),
+
+  gameDateFormatted: computed("dateTime", function(){
+    return get(this, "dateTimeMoment").format('MMM Do YYYY');
+  }),
+
   gameTimeFormatted: computed("dateTime", function(){
-    return moment(get(this, "dateTime")).format('MMMM Do YYYY, h:mm a');
+    return get(this, "dateTimeMoment").format('h:mm a');
   })
 
 });

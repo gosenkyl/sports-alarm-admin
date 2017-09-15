@@ -33,6 +33,6 @@
   </div>
 {{/if}}
 
-<div class="image-container" {{action "onClick"}}>
+<div class="image-container {{if isHighlighted "highlighted"}}" {{action "onClick"}}>
     <img src="{{team.imageURL}}" />
 </div>

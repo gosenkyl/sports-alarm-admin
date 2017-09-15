@@ -1,10 +1,12 @@
 import Ember from 'ember';
 import { task } from 'ember-concurrency';
+import moment from 'moment';
 
 let {
   Component,
   inject,
-  computed
+  computed,
+  get
   } = Ember;
 
 export default Component.extend({
@@ -15,6 +17,18 @@ export default Component.extend({
 
   team: null,
 
-  games: computed.reads("team.gamesSorted")
+  games: computed.reads("team.gamesSorted"),
+
+  now: computed({
+    get(){
+      return moment();
+    }
+  }),
+
+  nextGame: computed("games.[]", function(){
+    return get(this, "games").find(game => {
+        return moment(get(game, "dateTime")).isAfter(moment());
+    });
+  })
 
 });

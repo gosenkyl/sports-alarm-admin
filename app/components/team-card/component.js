@@ -9,8 +9,10 @@ let {
 
 export default Component.extend({
   classNames: ["team-card"],
-  classNameBindings: ["isCollapsedVersion:team-card-collapsed:team-card-standard"],
+  classNameBindings: ["isCollapsedVersion:team-card-collapsed:team-card-standard","isColumn:flex-column:flex-row"],
 
+  isColumn: true,
+  isHighlighted: false,
   isCollapsedVersion: false,
 
   router: inject.service("router"),

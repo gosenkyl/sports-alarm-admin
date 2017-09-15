@@ -1,6 +1,26 @@
+$blue: #187891;
+$gray: #3A4B4C;
+
 .flex-row {
   display: flex;
   flex-direction: row;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.text-center {
+  text-align: center;
 }
 
 html, body {
@@ -31,8 +51,7 @@ body > div {
   min-height: 75px;
   position: fixed;
 
-  background-color: white;
-  border-bottom: solid darkgray 4px;
+  background-color: $blue;
 
   width: 100%;
   z-index: 999;
@@ -42,18 +61,18 @@ body > div {
     font-weight: bolder;
 
     a {
-      text-decoration:  none;
-      color: cadetblue;
+      text-decoration: none;
+      color: white;
     }
 
     a:hover {
-      color: darkcyan;
+      color: white;
     }
   }
 }
 
 .content {
-  padding-top: 100px;
+  padding-top: 75px;
 }
 
 .team-grid {
@@ -71,6 +90,11 @@ body > div {
 
 
 .team-card {
+
+  .highlighted {
+    border: thin solid $blue;
+    border-radius: 100%;
+  }
 
 }
 
@@ -158,10 +182,10 @@ body > div {
   }
 
   .image-container {
-    height: 100%;
+
     display: flex;
     justify-content: center;
-    padding-top: 20px;
+    padding: 20px 0;
 
     img {
       width: 50px;
@@ -179,16 +203,73 @@ body > div {
   align-items: center;
 
   .game {
+    justify-content: center;
+
     width: 100%;
+
+    border-bottom: thin solid #f3f3f3;
+    margin-bottom: 25px;
+
+    &.old {
+      opacity: .5;
+    }
+
+    .next-game {
+      position: absolute;
+      left: 0;
+      align-self: center;
+    }
 
     .game-date {
       display: flex;
+      align-items: center;
+    }
+  }
+
+  .team-header {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    background-color: $gray;
+
+    color: white;
+
+    margin-bottom: 20px;
+
+    .team-card {
+      height: inherit;
+      width: inherit;
+
       justify-content: center;
+      align-items: center;
+
+      .team-name {
+        align-items: center;
+      }
+
+      .image-container {
+        padding: 5px 0;
+      }
     }
   }
 
   .opponent-container {
-    justify-content: space-around;
+    .home-away {
+      padding: 10px 0 50px 0;
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .home-away > div{
+      width: 100px;
+      margin-left: 10vw;
+    }
+
+    .team-card {
+      margin-left: 10vw;
+    }
+
   }
 
 }
