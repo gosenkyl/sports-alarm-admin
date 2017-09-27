@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import {task} from 'ember-concurrency';
 
 let {
   Component,
@@ -16,6 +17,7 @@ export default Component.extend({
   isCollapsedVersion: false,
 
   router: inject.service("router"),
+  teamService: inject.service("team"),
 
   team: null,
 
@@ -25,12 +27,18 @@ export default Component.extend({
   showOrigin: true,
   teamNameStack: false,
 
+  save: task(function * (){
+    yield get(this, "teamService.saveTeam").perform(get(this, "team"));
+  }),
+
   actions: {
     edit(){
       set(this, "isEditMode", true);
     },
 
     save(){
+      get(this, "save").perform();
+
       set(this, "isEditMode", false);
     },
 

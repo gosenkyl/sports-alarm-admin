@@ -16,8 +16,16 @@ export default Component.extend({
   store: inject.service("store"),
 
   team: null,
-
   games: computed.reads("team.gamesSorted"),
+
+  didInsertElement(){
+
+    Ember.run.later(() => {
+      Ember.$('html, body').animate({
+        scrollTop: this.$(".next-game").offset().top - 100
+      });
+    }, 500);
+  },
 
   now: computed({
     get(){
