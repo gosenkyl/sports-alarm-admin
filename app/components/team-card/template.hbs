@@ -1,12 +1,12 @@
 {{#if isEditMode}}
   <div>
       <div class="team-name-edit">
-        {{input type="text" value=team.city}}
-        {{input type="text" value=team.mascot}}
+        {{input type="text" value=editTeam.city}}
+        {{input type="text" value=editTeam.mascot}}
       </div>
       <div class="edit-buttons">
-          <div {{action "save"}}>save</div>
-          <div {{action "cancel"}}>cancel</div>
+          <button {{action "save"}}>save</button>
+          <button {{action "cancel"}}>cancel</button>
       </div>
   </div>
 {{else}}
@@ -21,7 +21,7 @@
         </div>
         {{#if canEdit}}
           <div class="edit-buttons">
-            <div {{action "edit"}}>edit</div>
+            <button {{action "edit"}}>edit</button>
           </div>
         {{/if}}
     </div>

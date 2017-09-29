@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import {task} from 'ember-concurrency';
+import TeamObj from 'sports-alarm-admin/objects/team';
 
 let {
   Component,
@@ -21,6 +22,8 @@ export default Component.extend({
 
   team: null,
 
+  editTeam: null,
+
   canEdit: false,
   isEditMode: false,
 
@@ -28,11 +31,22 @@ export default Component.extend({
   teamNameStack: false,
 
   save: task(function * (){
+    let editTeam = get(this, "editTeam");
+
+    set(this, "team.city", get(editTeam, "city"));
+    set(this, "team.mascot", get(editTeam, "mascot"));
+
     yield get(this, "teamService.saveTeam").perform(get(this, "team"));
   }),
 
   actions: {
     edit(){
+      let editTeam = TeamObj.create({
+        city: get(this, "team.city"),
+        mascot: get(this, "team.mascot")
+      });
+
+      set(this, "editTeam", editTeam);
       set(this, "isEditMode", true);
     },
 
@@ -40,10 +54,12 @@ export default Component.extend({
       get(this, "save").perform();
 
       set(this, "isEditMode", false);
+      set(this, "editTeam", null);
     },
 
     cancel(){
       set(this, "isEditMode", false);
+      set(this, "editTeam", null);
     },
 
     onClick(){
