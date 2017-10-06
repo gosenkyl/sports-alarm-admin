@@ -56,7 +56,7 @@ body > div {
   width: 100%;
   z-index: 999;
 
-  .league {
+  .menu-item {
     font-size: 24px;
     font-weight: bolder;
 
@@ -68,6 +68,11 @@ body > div {
     a:hover {
       color: white;
     }
+  }
+
+  .home {
+    width: 40px;
+    height: auto;
   }
 }
 

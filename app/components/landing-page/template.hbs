@@ -1,5 +1,9 @@
+<div class="menu-item">
+  {{#link-to "home"}}<img class="home" src="/assets/images/home.svg"/>{{/link-to}}
+</div>
+
 {{#each sortedLeagues as |league|}}
-  <div class="league">
+  <div class="menu-item">
     {{#link-to "leagues" league.id}}{{league.id}}{{/link-to}}
   </div>
 {{/each}}
