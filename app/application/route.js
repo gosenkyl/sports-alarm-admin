@@ -13,5 +13,4 @@ export default Route.extend({
   model(){
     return get(this, "store").findAll("league");
   }
-
 });

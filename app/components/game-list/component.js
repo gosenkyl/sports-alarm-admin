@@ -6,7 +6,10 @@ let {
   Component,
   inject,
   computed,
-  get
+  get,
+  run,
+  $:ember$,
+  isPresent
   } = Ember;
 
 export default Component.extend({
@@ -19,10 +22,12 @@ export default Component.extend({
   games: computed.reads("team.gamesSorted"),
 
   didInsertElement(){
+    let nextGame = this.$(".next-game");
+    let scrollTo = isPresent(nextGame) ? nextGame.offset().top - 100 : this.$(".game:last").offset().top;
 
-    Ember.run.later(() => {
-      Ember.$('html, body').animate({
-        scrollTop: this.$(".next-game").offset().top - 100
+    run.later(() => {
+      ember$('html, body').animate({
+        scrollTop: scrollTo
       });
     }, 500);
   },
